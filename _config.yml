@@ -1,0 +1,58 @@
+# Welcome to Jekyll!
+# This config file affects your whole blog.
+
+title: Your awesome title
+email: your-email@example.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: jekyllrb
+github_username: jekyll
+
+# Build settings
+#theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+permalink: /:categories/:year/:month/:day/:title.html
+
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  parse_block_html: true
+
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+
+# Generate search.json
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null
+
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+  resources:
+    output: true
+    permalink: /Resources/:name/
+
+
+# Exclude from processing
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/

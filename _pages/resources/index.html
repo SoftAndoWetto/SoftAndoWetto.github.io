@@ -1,0 +1,186 @@
+---
+layout: main
+title: Resources
+permalink: /Resources/
+header: All Resources
+---
+
+<div class="resources-hero">
+  <div class="hero-content">
+    <h1>Resources</h1>
+    <div class="resources-stats">
+      {% assign resources_list = site.resources | sort: "date" | reverse %}
+      <div class="stat-card">
+        <div class="stat-number">{{ resources_list | size }}</div>
+        <div class="stat-label">Total Resources</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ resources_list | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
+        <div class="stat-label">Topics</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  {% assign resources_list = site.resources | sort: "date" | reverse %}
+  {% for res in resources_list %}
+    <div class="resources-card">
+      <div class="overlay">
+        <h3><a href="{{ res.url }}">{{ res.title }}</a></h3>
+        <div class="meta">
+          {% if res.author %}<span>By {{ res.author }}</span> | {% endif %}
+          {% if res.date %}<span>{{ res.date | date: "%b %-d, %Y" }}</span>{% endif %}
+        </div>
+        {% if res.tags %}
+        <div class="tags">
+          {% for tag in res.tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <a href="{{ res.url }}" class="card-overlay"></a>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+.resources-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 35%, #2b0e47 70%, #16213e 100%);
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.resources-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  background: rgba(98,0,238,0.1);
+  border-color: rgba(98,0,238,0.3);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6200EE;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resources-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  padding: 2rem;
+  background: #1c1c1c;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.resources-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(98, 0, 238, 0.2);
+}
+
+.overlay h3 {
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.overlay h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.overlay .meta {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.overlay .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.overlay .tags span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .resources-hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .resources-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+</style>
