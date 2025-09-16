@@ -46,7 +46,7 @@ collections:
     permalink: /:name/
   resources:
     output: true
-    permalink: /Resources/:name/
+    permalink: /resources/:name/
 
 
 # Exclude from processing
