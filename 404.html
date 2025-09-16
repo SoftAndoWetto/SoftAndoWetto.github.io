@@ -743,4 +743,749 @@ permalink: /404.html
       centerTerminal();
     }
   });
+</script>---
+layout: main
+title: 404 - Not Found
+permalink: /404.html
+---
+<meta charset="UTF-8">
+<style>
+  /* Scoped 404 styles — do NOT target global 
+	<body> directly so main layout stays intact */
+  /* Make main-content (only for this page) take full viewport space */
+  .main-content {
+    padding: 0 !important;
+    min-height: calc(100vh - 60px);
+    /* leave room for the navbar (60px in your main) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+
+  /* Outer wrapper that contains the entire 404 experience */
+  .error-404-page {
+    color: #c77dff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: crosshair;
+  }
+
+  /* animated background pulse */
+  .error-404-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  @keyframes bgPulse {
+    0% {
+      opacity: 0.3;
+      transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1) rotate(2deg);
+    }
+
+    100% {
+      opacity: 0.9;
+      transform: scale(1.2) rotate(-1deg);
+    }
+  }
+
+  /* scanlines */
+  .error-404-page .scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom,
+        rgba(147, 51, 234, 0.05) 0px,
+        rgba(147, 51, 234, 0.05) 1px,
+        transparent 2px,
+        transparent 4px);
+    animation: scan 2s linear infinite;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100px);
+    }
+
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+
+  /* matrix */
+  .error-404-page .matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.3;
+  }
+
+  .error-404-page .matrix-column {
+    position: absolute;
+    top: -100px;
+    font-size: 14px;
+    line-height: 14px;
+    color: #9333ea;
+    animation: matrixRain linear infinite;
+    text-shadow: 0 0 5px #9333ea;
+  }
+
+  @keyframes matrixRain {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  /* terminal */
+  .error-404-page .terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    width: 900px;
+    max-width: 95vw;
+    min-height: 600px;
+    padding: 2.5rem;
+    background: rgba(5, 0, 15, 0.85);
+    border: 2px solid rgba(147, 51, 234, 0.6);
+    border-radius: 8px;
+    box-shadow:
+      0 0 30px rgba(147, 51, 234, 0.4),
+      inset 0 0 20px rgba(147, 51, 234, 0.1);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    cursor: move;
+    user-select: none;
+  }
+
+  .error-404-page .terminal.dragging {
+    cursor: grabbing;
+    z-index: 10;
+  }
+
+  .error-404-page .terminal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(45deg, #1a0035, #2a0045, #4d0065, #2a0045, #1a0035);
+    opacity: 0.8;
+  }
+
+  .error-404-page .terminal-header {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: bold;
+    z-index: 4;
+  }
+
+  .error-404-page .terminal-controls {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    z-index: 4;
+  }
+
+  .error-404-page .control-btn {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+
+  .error-404-page .close {
+    background: #ff5f56;
+  }
+
+  .error-404-page .minimize {
+    background: #ffbd2e;
+  }
+
+  .error-404-page .maximize {
+    background: #27ca3f;
+  }
+
+  /* logs */
+  .error-404-page .log {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #d8b4fe;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    border-right: 2px solid #a855f7;
+    width: 80ch;
+    animation: blink 1s step-start infinite;
+    position: relative;
+    text-shadow: 0 0 5px rgba(168, 85, 247, 0.3);
+  }
+
+  .error-404-page .log.error {
+    color: #ff6b9d;
+    text-shadow: 0 0 8px rgba(255, 107, 157, 0.5);
+  }
+
+  .error-404-page .log.warning {
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
+  }
+
+  .error-404-page .log.success {
+    color: #34d399;
+    text-shadow: 0 0 8px rgba(52, 211, 153, 0.5);
+  }
+
+  @keyframes blink {
+
+    0%,
+    50% {
+      border-color: #a855f7;
+    }
+
+    51%,
+    100% {
+      border-color: transparent;
+    }
+  }
+
+  /* stagger */
+  .error-404-page .log:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+
+  .error-404-page .log:nth-child(3) {
+    animation-delay: 2s;
+  }
+
+  .error-404-page .log:nth-child(4) {
+    animation-delay: 3.5s;
+  }
+
+  .error-404-page .log:nth-child(5) {
+    animation-delay: 5s;
+  }
+
+  .error-404-page .log:nth-child(6) {
+    animation-delay: 6.5s;
+  }
+
+  .error-404-page .log:nth-child(7) {
+    animation-delay: 8s;
+  }
+
+  .error-404-page .log:nth-child(8) {
+    animation-delay: 9.5s;
+  }
+
+  /* ascii */
+  .error-404-page .ascii {
+    margin: 2rem 0;
+    font-size: 1rem; /* Increased from 0.7rem - adjust this value */
+    line-height: 1;
+    color: #ff0080;
+    text-shadow:
+      0 0 2px #ff0080,
+      0 0 6px #ff0080,
+      0 0 12px #ff0080;
+    white-space: pre;
+    position: relative;
+    font-weight: bold;
+    animation: mainGlow 3s ease-in-out infinite alternate;
+    text-align: center;
+    width: 100%;
+  }
+
+  @keyframes mainGlow {
+    0% {
+      text-shadow: 0 0 5px #ff0080, 0 0 15px #ff0080, 0 0 25px #ff0080;
+    }
+
+    100% {
+      text-shadow: 0 0 10px #ff0080, 0 0 25px #ff0080, 0 0 40px #ff0080;
+    }
+  }
+
+  .error-404-page .ascii::before,
+  .error-404-page .ascii::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+  }
+
+  .error-404-page .ascii::before {
+    animation: glitchRed 0.3s infinite linear alternate-reverse;
+    color: #9333ea;
+    z-index: -1;
+  }
+
+  .error-404-page .ascii::after {
+    animation: glitchCyan 0.4s infinite linear alternate-reverse;
+    color: #c084fc;
+    z-index: -2;
+  }
+
+  @keyframes glitchRed {
+    0% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 95% 0);
+    }
+
+    20% {
+      transform: translate(-3px, 2px);
+      clip-path: inset(20% 0 60% 0);
+    }
+
+    40% {
+      transform: translate(-2px, -3px);
+      clip-path: inset(40% 0 40% 0);
+    }
+
+    60% {
+      transform: translate(3px, 1px);
+      clip-path: inset(60% 0 20% 0);
+    }
+
+    80% {
+      transform: translate(2px, -2px);
+      clip-path: inset(80% 0 0 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 95% 0);
+    }
+  }
+
+  @keyframes glitchCyan {
+    0% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 90% 0);
+    }
+
+    20% {
+      transform: translate(2px, -1px);
+      clip-path: inset(25% 0 55% 0);
+    }
+
+    40% {
+      transform: translate(3px, 2px);
+      clip-path: inset(45% 0 35% 0);
+    }
+
+    60% {
+      transform: translate(-3px, -2px);
+      clip-path: inset(65% 0 15% 0);
+    }
+
+    80% {
+      transform: translate(-1px, 3px);
+      clip-path: inset(85% 0 0 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+      clip-path: inset(0 0 90% 0);
+    }
+  }
+
+  /* progress + link */
+  .error-404-page .progress-container {
+    margin: 1.5rem 0;
+    background: rgba(147, 51, 234, 0.2);
+    border: 1px solid rgba(147, 51, 234, 0.5);
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .error-404-page .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #9333ea, #a855f7, #c084fc);
+    width: 0%;
+    animation: progressFill 3s ease-out forwards;
+    animation-delay: 7s;
+    box-shadow: 0 0 10px rgba(147, 51, 234, 0.8);
+  }
+
+  @keyframes progressFill {
+    0% {
+      width: 0%;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+
+  .error-404-page .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: bold;
+    z-index: 2;
+  }
+
+  .error-404-page .link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    border: 2px solid #a855f7;
+    color: #e879f9;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 10px #a855f7;
+    transition: all 0.3s ease;
+    background: rgba(168, 85, 247, 0.1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  .error-404-page .link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .error-404-page .link:hover {
+    background: rgba(168, 85, 247, 0.3);
+    color: #fff;
+    box-shadow:
+      0 0 20px rgba(168, 85, 247, 0.8),
+      0 0 40px rgba(168, 85, 247, 0.4),
+      inset 0 0 20px rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .error-404-page .link:hover::before {
+    left: 100%;
+  }
+
+  /* spark animation keyframes (no JS injection needed) */
+  @keyframes sparkFade {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    .error-404-page .terminal {
+      max-width: 90%;
+      padding: 1.5rem;
+    }
+
+    .error-404-page .ascii {
+      font-size: 0.5rem;
+    }
+
+    .error-404-page .log {
+      font-size: 0.85rem;
+    }
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #0a0015, #1a0030, #2d0050, #1a0030, #0a0015);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    overflow: hidden;
+    position: relative;
+  }
+
+  @keyframes gradientShift {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    25% {
+      background-position: 100% 50%;
+    }
+
+    50% {
+      background-position: 100% 100%;
+    }
+
+    75% {
+      background-position: 0% 100%;
+    }
+  }
+
+  /* Circuit/grid overlay */
+  .circuit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    /* adjust light wash */
+    background-image:
+      linear-gradient(90deg, #8b5cf6 1px, transparent 1px),
+      linear-gradient(180deg, #8b5cf6 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: circuitMove 20s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes circuitMove {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+</style>
+<div class="background">
+  <div class="circuit"></div>
+</div>
+<div class="error-404-page" role="main" aria-labelledby="error-title">
+  <!-- Matrix Rain Effect -->
+  <div class="matrix" id="matrix"></div>
+  <div class="terminal" aria-hidden="false">
+    <div class="terminal-header">SECURITY_TERMINAL_v3.7.1</div>
+    <div class="terminal-controls">
+      <span class="control-btn close"></span>
+      <span class="control-btn minimize"></span>
+      <span class="control-btn maximize"></span>
+    </div>
+    <div style="margin-top: 40px;"></div>
+    <!-- Logs appended by JS -->
+    <div class="ascii" data-text="    ██╗  ██╗ ██████╗ ██╗  ██╗
+    ██║  ██║██╔═████╗██║  ██║
+    ███████║██║██╔██║███████║
+    ╚════██║████╔╝██║╚════██║
+         ██║╚██████╔╝     ██║
+         ╚═╝ ╚═════╝      ╚═╝">    ██╗  ██╗ ██████╗ ██╗  ██╗
+    ██║  ██║██╔═████╗██║  ██║
+    ███████║██║██╔██║███████║
+    ╚════██║████╔╝██║╚════██║
+         ██║╚██████╔╝     ██║
+         ╚═╝ ╚═════╝      ╚═╝</div>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+      <div class="progress-text">THREAT NEUTRALIZED</div>
+    </div>
+    <a href="{{ '/' | relative_url }}" class="link">[ RETURN TO HOME BASE ]</a>
+  </div>
+  <div class="scanlines"></div>
+</div>
+<script>
+  (function() {
+    const wrapper = document.querySelector('.error-404-page');
+    if (!wrapper) return;
+    const terminal = wrapper.querySelector('.terminal');
+    const terminalLines = ["root@security-node:~$ sudo systemcheck --deep-scan", "Initiating deep system scan...", "⚠ WARNING: Unauthorized access attempt detected", "Tracing connection... IP: [CLASSIFIED]", "✗ ERROR 404: Requested resource not found in secure database", "Running defensive protocols...", "✓ Firewall activated | Intrusion logged", "Returning to safe node... Connection terminated."];
+    // Drag functionality
+    let isDragging = false;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+    terminal.addEventListener('mousedown', e => {
+      isDragging = true;
+      terminal.classList.add('dragging');
+      const style = getComputedStyle(terminal);
+      dragOffsetX = e.clientX - parseFloat(style.left);
+      dragOffsetY = e.clientY - parseFloat(style.top);
+      e.preventDefault();
+    });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      let newX = e.clientX - dragOffsetX;
+      let newY = e.clientY - dragOffsetY;
+      // Remove clamping
+      // const maxX = window.innerWidth - terminal.offsetWidth;
+      // const maxY = window.innerHeight - terminal.offsetHeight;
+      // newX = Math.max(0, Math.min(newX, maxX));
+      // newY = Math.max(0, Math.min(newY, maxY));
+      terminal.style.left = newX + 'px';
+      terminal.style.top = newY + 'px';
+    });
+    document.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        terminal.classList.remove('dragging');
+      }
+    });
+    terminal.addEventListener('selectstart', e => {
+      if (isDragging) e.preventDefault();
+    });
+    // Terminal typing
+    function typeLine(text, delay = 35) {
+      return new Promise(resolve => {
+        const line = document.createElement('div');
+        line.className = 'log';
+        terminal.appendChild(line);
+        let i = 0;
+        const interval = setInterval(() => {
+          line.textContent += text[i] || '';
+          i++;
+          if (i === text.length) {
+            clearInterval(interval);
+            resolve();
+          }
+        }, delay);
+      });
+    }
+    async function typeTerminal() {
+      for (let line of terminalLines) {
+        await typeLine(line);
+        await new Promise(r => setTimeout(r, 250));
+      }
+    }
+    // Matrix rain
+    function createMatrixRain() {
+      const matrix = wrapper.querySelector('#matrix');
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEF';
+      for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+          const column = document.createElement('div');
+          column.className = 'matrix-column';
+          column.style.left = Math.random() * 100 + '%';
+          column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          column.style.animationDelay = Math.random() * 2 + 's';
+          let text = '';
+          for (let j = 0; j < Math.floor(Math.random() * 20) + 10; j++) {
+            text += chars[Math.floor(Math.random() * chars.length)] + '\n';
+          }
+          column.textContent = text;
+          matrix.appendChild(column);
+          setTimeout(() => {
+            column.remove();
+          }, 8000);
+        }, i * 300);
+      }
+    }
+    // ASCII glitch effect
+    function enhanceGlitch() {
+      const ascii = wrapper.querySelector('.ascii');
+      if (!ascii) return;
+      setInterval(() => {
+        if (Math.random() > 0.8) {
+          ascii.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg) saturate(' + (Math.random() * 2 + 0.5) + ')';
+          setTimeout(() => {
+            ascii.style.filter = 'none';
+          }, 100);
+        }
+      }, 200);
+    }
+    // Terminal flicker
+    function terminalFlicker() {
+      setInterval(() => {
+        if (Math.random() > 0.95) {
+          terminal.style.opacity = '0.8';
+          setTimeout(() => {
+            terminal.style.opacity = '1';
+          }, 50);
+        }
+      }, 1000);
+    }
+    // Cursor sparks
+    document.addEventListener('mousemove', (e) => {
+      if (Math.random() > 0.97) {
+        const spark = document.createElement('div');
+        spark.style.cssText = `
+        position: fixed;
+        left: ${e.clientX}px;
+        top: ${e.clientY}px;
+        width: 2px;
+        height: 2px;
+        background: #a855f7;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1000;
+        box-shadow: 0 0 6px #a855f7;
+        animation: sparkFade 1s ease-out forwards;
+      `;
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 1000);
+      }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      typeTerminal();
+      createMatrixRain();
+      enhanceGlitch();
+      terminalFlicker();
+      setInterval(createMatrixRain, 8000);
+    });
+  })();
+
+  function centerTerminal() {
+    const rect = terminal.getBoundingClientRect();
+    terminal.style.left = (window.innerWidth / 2 - rect.width / 2) + 'px';
+    terminal.style.top = (window.innerHeight / 2 - rect.height / 2) + 'px';
+  }
+  // Center after DOM is ready
+  window.addEventListener('load', centerTerminal);
+  window.addEventListener('resize', () => {
+    if (!terminal.classList.contains('dragging')) {
+      centerTerminal();
+    }
+  });
 </script>
