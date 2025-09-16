@@ -1,0 +1,52 @@
+                                    bbbbbbbb                                                                                                                                              
+                                    b::::::b                                      tttt                                            tttt                                      tttt          
+                                    b::::::b                                   ttt:::t                                         ttt:::t                                   ttt:::t          
+                                    b::::::b                                   t:::::t                                         t:::::t                                   t:::::t          
+                                     b:::::b                                   t:::::t                                         t:::::t                                   t:::::t          
+rrrrr   rrrrrrrrr      ooooooooooo   b:::::bbbbbbbbb       ooooooooooo   ttttttt:::::ttttttt        ssssssssss           ttttttt:::::ttttttt   xxxxxxx      xxxxxxxttttttt:::::ttttttt    
+r::::rrr:::::::::r   oo:::::::::::oo b::::::::::::::bb   oo:::::::::::oo t:::::::::::::::::t      ss::::::::::s          t:::::::::::::::::t    x:::::x    x:::::x t:::::::::::::::::t    
+r:::::::::::::::::r o:::::::::::::::ob::::::::::::::::b o:::::::::::::::ot:::::::::::::::::t    ss:::::::::::::s         t:::::::::::::::::t     x:::::x  x:::::x  t:::::::::::::::::t    
+rr::::::rrrrr::::::ro:::::ooooo:::::ob:::::bbbbb:::::::bo:::::ooooo:::::otttttt:::::::tttttt    s::::::ssss:::::s        tttttt:::::::tttttt      x:::::xx:::::x   tttttt:::::::tttttt    
+ r:::::r     r:::::ro::::o     o::::ob:::::b    b::::::bo::::o     o::::o      t:::::t           s:::::s  ssssss               t:::::t             x::::::::::x          t:::::t          
+ r:::::r     rrrrrrro::::o     o::::ob:::::b     b:::::bo::::o     o::::o      t:::::t             s::::::s                    t:::::t              x::::::::x           t:::::t          
+ r:::::r            o::::o     o::::ob:::::b     b:::::bo::::o     o::::o      t:::::t                s::::::s                 t:::::t              x::::::::x           t:::::t          
+ r:::::r            o::::o     o::::ob:::::b     b:::::bo::::o     o::::o      t:::::t    ttttttssssss   s:::::s               t:::::t    tttttt   x::::::::::x          t:::::t    tttttt
+ r:::::r            o:::::ooooo:::::ob:::::bbbbbb::::::bo:::::ooooo:::::o      t::::::tttt:::::ts:::::ssss::::::s              t::::::tttt:::::t  x:::::xx:::::x         t::::::tttt:::::t
+ r:::::r            o:::::::::::::::ob::::::::::::::::b o:::::::::::::::o      tt::::::::::::::ts::::::::::::::s  ......       tt::::::::::::::t x:::::x  x:::::x        tt::::::::::::::t
+ r:::::r             oo:::::::::::oo b:::::::::::::::b   oo:::::::::::oo         tt:::::::::::tt s:::::::::::ss   .::::.         tt:::::::::::ttx:::::x    x:::::x         tt:::::::::::tt
+ rrrrrrr               ooooooooooo   bbbbbbbbbbbbbbbb      ooooooooooo             ttttttttttt    sssssssssss     ......           ttttttttttt xxxxxxx      xxxxxxx          ttttttttttt  
+                                                                                                                                                                                     
+
+---
+     ____          ____
+    |oooo|        |oooo|
+    |oooo| .----. |oooo|
+    |Oooo|/\_||_/\|oooO|
+    `----' / __ \ `----'
+    ,/ |#|/\/__\/\|#| \,
+   /  \|#|| |/\| ||#|/  \
+  / \_/|_|| |/\| ||_|\_/ \
+ |_\/    o\=----=/o    \/_|
+ <_>      |=\__/=|      <_>
+ <_>      |------|      <_>
+ | |   ___|======|___   | |
+//\\  / |O|======|O| \  //\\
+|  |  | |O+------+O| |  |  |
+|\/|  \_+/        \+_/  |\/|
+\__/  _|||        |||_  \__/
+      | ||        || |
+     [==|]        [|==]
+     [===]        [===]
+      >_<          >_<
+     || ||        || ||
+     || ||        || ||
+     || ||        || ||    -- Credit: Jay Thaler 
+   __|\_/|__    __|\_/|__
+  /___n_n___\  /___n_n___\
+---
+
+
+User-agent: *
+Allow: /
+
+Sitemap: https://softandowetto.github.io/sitemap.xml
