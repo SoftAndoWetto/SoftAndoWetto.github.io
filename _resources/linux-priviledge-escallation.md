@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Linux Priviledge Escallation Resources"
-date: 2025-09-08 10:00:00 +0000
 categories: [resources]
 tags: []
 author: "SoftAndoWetto"
