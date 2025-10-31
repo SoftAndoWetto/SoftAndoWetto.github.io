@@ -8,6 +8,8 @@ image: "/assets/images/thumbnails/firefox_selling_out/thumbnail.png"
 description: "Firefox’s privacy promise faces scrutiny as Mozilla updates its terms, introduces AI features, and expands data collection. Is your browser still protecting your data, or selling your trust?"
 author: "SoftAndoWetto"
 ---
+
+# Introduction
 For years, Firefox has been the go-to browser for people who care about protecting their privacy online, instead of going to places like Google Chrome.  
 Mozilla, the non-profit organization behind Firefox, built a reputation around the idea of keeping the users data in their hands and their hands only.  
 However, recent changes to its terms of service have raised concerns about whether Firefox is still fighting for privacy to be in the power of the users.

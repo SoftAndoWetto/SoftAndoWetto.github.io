@@ -1,6 +1,5 @@
 ---
 layout: post
-locked: true
 title: "Are ID Cards Actually Safe?"
 date: 2024-02-06 10:00:00 +0000
 categories: [blog]

@@ -8,6 +8,8 @@ image: "/assets/images/thumbnails/deepseek_stealing_data/thumbnail.png"
 description: "DeepSeek AI sparks global concern as tests reveal potential data leaks to China, prompting South Korea to suspend downloads over privacy violations. What does this mean for AI transparency and user safety?"
 author: "SoftAndoWetto"
 ---
+
+# Introduction
 The Chinese artificial intelligence (AI) chatbot and alternative to ChatGPT, DeepSeek, has found itself at the centre of controversy due to concerns over its data privacy practices. David Bombal has conducted a thorough analysis that has raised serious questions about the platform’s handling of user data.
 
 # David Bombal’s Alarming Findings

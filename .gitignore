@@ -6,21 +6,19 @@ vendor
 _pages/CV/index.html
 RUN THE PAGE.bat
 TODO.txt
-
+.gitignore
 
 
 
 
 
 _posts/blog/2025-12-31-interview-blog-post.md
-_posts/blog/2025-11-07
-
-
-_posts/blog/2025-08-69-the-looking-glass-v2.md
-_resources/website-enumeration.md
-_posts/blog/2025-11-07-Company-2.md
 _posts/blog/2025-11-14-Company-3.md
 _posts/blog/2025-11-28-Company-4-Part-2.md
 _posts/blog/2025-11-21-Company-4-Part-1.md
+
+_posts/blog/2025-08-69-the-looking-glass-v2.md
+_resources/website-enumeration.md
 Notes.txt
 assets/images/thumbnails/Company 2/thumbnail.png
+_posts/blog/2025-11-07-what-the-government-really-asks-for.md
