@@ -376,8 +376,69 @@ document.addEventListener('DOMContentLoaded', function() {
     <hr class="post-divider">
   </header>
 
+  <!-- Breadcrumb structured data for better SERP display -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ '/' | absolute_url }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{% if page.category == 'writeup' %}Writeups{% else %}Blog{% endif %}",
+        "item": "{% if page.category == 'writeup' %}{{ '/writeup/' | absolute_url }}{% else %}{{ '/blog/' | absolute_url }}{% endif %}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ page.title | escape }}",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  }
+  </script>
+
   <div class="post-content">
     {{ content | multi_br | raw }}
+  </div>
+
+  <!-- Related posts (by tag) -->
+  <div class="related-posts section">
+    <h3>Related posts</h3>
+    <div class="related-grid">
+      {% assign collection = site.blog %}
+      {% if page.category == 'writeup' %}
+        {% assign collection = site.writeups %}
+      {% endif %}
+
+      {% assign displayed = 0 %}
+      {% for p in collection %}
+        {% if p.url != page.url %}
+          {% assign match = 0 %}
+          {% for tag in page.tags %}
+            {% if p.tags contains tag %}
+              {% assign match = match | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+
+          {% if match > 0 and displayed < 3 %}
+            <div class="related-card">
+              <a href="{{ p.url | relative_url }}">
+                <div class="related-title">{{ p.title }}</div>
+                <div class="related-meta">{{ p.date | date: "%b %-d, %Y" }}</div>
+              </a>
+            </div>
+            {% assign displayed = displayed | plus: 1 %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 
   <div class="post-nav">
@@ -405,3 +466,13 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </footer>
 </article>
+
+<style>
+.related-posts { max-width: 900px; margin: 2rem auto; }
+.related-grid { display: flex; gap: 1rem; flex-wrap: wrap; }
+.related-card { flex: 1 1 calc(33% - 1rem); background: rgba(28,28,28,0.8); padding: 1rem; border-radius: 8px; }
+.related-card a { color: inherit; text-decoration: none; }
+.related-title { font-weight: 600; margin-bottom: 0.5rem; }
+.related-meta { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+@media (max-width: 768px) { .related-card { flex: 1 1 100%; } }
+</style>
