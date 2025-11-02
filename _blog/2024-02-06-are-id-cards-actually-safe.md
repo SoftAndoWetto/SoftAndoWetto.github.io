@@ -2,7 +2,7 @@
 layout: post
 title: "Are ID Cards Actually Safe?"
 date: 2024-02-06 10:00:00 +0000
-categories: [blog]
+collection: blog
 tags: [physical-security, social-engineering, universities, access-control, tailgating, security-awareness]
 image: "/assets/images/thumbnails/are_id_cards_actually_safe/thumbnail.png"
 description: "Testing the real-world security of university ID card access systems."

@@ -2,7 +2,7 @@
 layout: post
 title: "DeepSeek AI's Data Privacy Concerns: From Troubling Test Results to South Korea’s Ban"
 date: 2024-02-17 10:00:00 +0000
-categories: [blog]
+collection: blog
 tags: [deepseek, ai-chatbot, data-privacy, personal-information, cybersecurity, international-regulations, south-korea, privacy-concerns]
 image: "/assets/images/thumbnails/deepseek_stealing_data/thumbnail.png"
 description: "DeepSeek AI sparks global concern as tests reveal potential data leaks to China, prompting South Korea to suspend downloads over privacy violations. What does this mean for AI transparency and user safety?"

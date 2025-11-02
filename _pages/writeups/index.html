@@ -1,7 +1,7 @@
 ---
 layout: main
 title: Writeups
-permalink: /writeups/
+permalink: /writeup/
 header: All writeups Posts
 ---
 
@@ -9,17 +9,17 @@ header: All writeups Posts
   <div class="hero-content">
     <h1>Writeups</h1>
     <div class="writeups-stats">
-      {% assign writeupss = site.posts | where_exp:"post","post.categories contains 'writeups'" | sort:"date" | reverse %}
+      {% assign writeupss = site.writeups | sort:"date" | reverse %}
       <div class="stat-card">
         <div class="stat-number">{{ writeupss | size }}</div>
         <div class="stat-label">Total Posts</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">{{ site.posts | where_exp:"post","post.categories contains 'writeups'" | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
+        <div class="stat-number">{{ site.writeups | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
         <div class="stat-label">Topics</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">{{ site.posts | where_exp:"post","post.categories contains 'writeups'" | group_by_exp:"post","post.date | date: '%Y'" | size }}</div>
+        <div class="stat-number">{{ site.writeups | group_by_exp:"post","post.date | date: '%Y'" | size }}</div>
         <div class="stat-label">Years</div>
       </div>
     </div>
@@ -27,7 +27,7 @@ header: All writeups Posts
 </div>
 
 <div class="section">
-  {% assign writeupss = site.posts | where_exp:"post","post.categories contains 'writeups'" | sort:"date" | reverse %}
+  {% assign writeupss = site.writeups | sort:"date" | reverse %}
   {% assign current_month = "" %}
   
   {% for post in writeupss %}

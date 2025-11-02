@@ -1,28 +1,20 @@
-# Welcome to Jekyll!
-# This config file affects your whole blog.
-
-title: Your awesome title
+# Site settings
+title: SoftAndoWetto's Blog Page
 email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+description: "Write an awesome description for your site here."
+url: "https://softandowetto.github.io" # Replace with your GitHub Pages URL
+baseurl: "" # leave empty unless using a subfolder
+
 twitter_username: jekyllrb
 github_username: jekyll
 
 # Build settings
-#theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
-permalink: /:categories/:year/:month/:day/:title.html
 
-
-# Markdown settings
 markdown: kramdown
 kramdown:
   input: GFM
@@ -32,28 +24,38 @@ sass:
   sass_dir: assets/css
   style: compressed
 
-
-# Generate search.json
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: null
-
+# Collections
 collections:
-  pages:
+  blog:
     output: true
-    permalink: /:name/
+    permalink: /blog/:title
+  writeups:
+    output: true
+    permalink: /writeup/:title
   resources:
     output: true
-    permalink: /resources/:name/
+    permalink: /resources/:title
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "blog"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "writeups"
+    values:
+      layout: "post"
 
-# Exclude from processing
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/
+# Optional: exclude unnecessary files from build
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+

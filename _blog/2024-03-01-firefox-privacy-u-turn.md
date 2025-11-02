@@ -2,7 +2,7 @@
 layout: post
 title: "Firefox’s Privacy U-Turn: Is Mozilla Still on Your Side?"
 date: 2024-03-01 10:00:00 +0000
-categories: [blog]
+collection: blog
 tags: [firefox, mozilla, data-privacy, ai-features, telemetry, user-data, privacy-concerns, browser-security]
 image: "/assets/images/thumbnails/firefox_selling_out/thumbnail.png"
 description: "Firefox’s privacy promise faces scrutiny as Mozilla updates its terms, introduces AI features, and expands data collection. Is your browser still protecting your data, or selling your trust?"

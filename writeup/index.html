@@ -1,25 +1,23 @@
 ---
 layout: main
-title: Blog Posts
-permalink: /blog/
-header: All Blog Posts
+title: Writeups
 ---
 
-<div class="blog-hero">
+<div class="writeups-hero">
   <div class="hero-content">
-    <h1>Blog Posts</h1>
-    <div class="blog-stats">
-      {% assign blogs = site.blog | sort:"date" | reverse %}
+    <h1>Writeups</h1>
+    <div class="writeups-stats">
+      {% assign writeupss = site.writeups | sort:"date" | reverse %}
       <div class="stat-card">
-        <div class="stat-number">{{ blogs | size }}</div>
+        <div class="stat-number">{{ writeupss | size }}</div>
         <div class="stat-label">Total Posts</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">{{ site.blog | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
+        <div class="stat-number">{{ site.writeups | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
         <div class="stat-label">Topics</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">{{ site.blog | group_by_exp:"post","post.date | date: '%Y'" | size }}</div>
+        <div class="stat-number">{{ site.writeups | group_by_exp:"post","post.date | date: '%Y'" | size }}</div>
         <div class="stat-label">Years</div>
       </div>
     </div>
@@ -27,10 +25,10 @@ header: All Blog Posts
 </div>
 
 <div class="section">
-  {% assign blogs = site.blog | sort:"date" | reverse %}
+  {% assign writeupss = site.writeups | sort:"date" | reverse %}
   {% assign current_month = "" %}
   
-  {% for post in blogs %}
+  {% for post in writeupss %}
     {% assign post_month = post.date | date: "%B %Y" %}
     
     {% if post_month != current_month %}
@@ -40,7 +38,7 @@ header: All Blog Posts
       </div>
     {% endif %}
     
-    <div class="blog-card">
+    <div class="writeups-card">
       <img src="{{ post.image }}" alt="{{ post.title }}">
       <div class="overlay">
         <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
@@ -61,7 +59,7 @@ header: All Blog Posts
 </div>
 
 <style>
-.blog-hero {
+.writeups-hero {
   background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 35%, #2b0e47 70%, #16213e 100%);
   border-radius: 12px;
   margin-bottom: 3rem;
@@ -76,7 +74,7 @@ header: All Blog Posts
   color: #ffffff;
 }
 
-.blog-stats {
+.writeups-stats {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -134,7 +132,7 @@ header: All Blog Posts
   margin: 0;
 }
 
-.blog-card {
+.writeups-card {
   position: relative;
   overflow: hidden;
   border-radius: 16px;
@@ -145,13 +143,13 @@ header: All Blog Posts
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.blog-card:hover {
+.writeups-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 60px rgba(98, 0, 238, 0.3), 
               0 0 0 1px rgba(98, 0, 238, 0.2);
 }
 
-.blog-card img {
+.writeups-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -161,7 +159,7 @@ header: All Blog Posts
   z-index: 2;
 }
 
-.blog-card:hover img {
+.writeups-card:hover img {
   transform: scale(1.15);
   filter: brightness(0.6) contrast(1.1);
 }
@@ -185,7 +183,7 @@ header: All Blog Posts
   z-index: 3;
 }
 
-.blog-card:hover .overlay {
+.writeups-card:hover .overlay {
   opacity: 1;
   visibility: visible;
 }
@@ -205,7 +203,7 @@ header: All Blog Posts
   transition: left 0.8s ease;
 }
 
-.blog-card:hover .overlay::before {
+.writeups-card:hover .overlay::before {
   left: 100%;
 }
 
@@ -219,7 +217,7 @@ header: All Blog Posts
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
 }
 
-.blog-card:hover .overlay h3 {
+.writeups-card:hover .overlay h3 {
   transform: translateY(0);
 }
 
@@ -236,7 +234,7 @@ header: All Blog Posts
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
 
-.blog-card:hover .overlay .meta {
+.writeups-card:hover .overlay .meta {
   transform: translateY(0);
 }
 
@@ -248,7 +246,7 @@ header: All Blog Posts
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
 
-.blog-card:hover .overlay .tags {
+.writeups-card:hover .overlay .tags {
   transform: translateY(0);
 }
 
@@ -283,7 +281,7 @@ header: All Blog Posts
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .blog-hero {
+  .writeups-hero {
     padding: 2rem 1rem;
   }
   
@@ -291,7 +289,7 @@ header: All Blog Posts
     font-size: 2rem;
   }
   
-  .blog-stats {
+  .writeups-stats {
     flex-direction: column;
     align-items: center;
     gap: 1rem;

@@ -2,7 +2,7 @@
 layout: post
 title: "Virtual Card Skimmer Analysis"
 date: 2024-02-12 10:00:00 +0000
-categories: [blog]
+collection: blog
 tags: [card-skimmer, magento, ecommerce, malware, content-security-policy, xss, payments, threat-analysis]
 image: "/assets/images/thumbnails/online_card_skimmers/thumbnail.png"
 description: "Analysis of an online card skimmer using Google Tag Manager"

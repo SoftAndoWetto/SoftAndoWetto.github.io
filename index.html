@@ -257,7 +257,7 @@ header: Welcome to My Blog & Writeups
 <div class="section">
   <h2 class="section-title">Latest Blog Posts</h2>
   <div class="card-grid">
-    {% assign recent_blogs = site.posts | where_exp:"post","post.categories contains 'blog'" | sort: "date" | reverse | slice: 0,3 %}
+    {% assign recent_blogs = site.blog | sort: "date" | reverse | slice: 0,3 %}
     {% for post in recent_blogs %}
     <a href="{{ post.url }}" class="card-link">
       <div class="card">
@@ -277,7 +277,7 @@ header: Welcome to My Blog & Writeups
 <div class="section">
   <h2 class="section-title">Latest Writeups</h2>
   <div class="card-grid">
-    {% assign recent_writeups = site.posts | where_exp:"post","post.categories contains 'writeups'" | sort: "date" | reverse | slice: 0,3 %}
+    {% assign recent_writeups = site.writeups | sort: "date" | reverse | slice: 0,3 %}
     {% for post in recent_writeups %}
     <a href="{{ post.url }}" class="card-link">
       <div class="card">

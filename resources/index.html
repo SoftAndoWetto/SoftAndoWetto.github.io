@@ -1,0 +1,210 @@
+---
+layout: main
+title: Resources
+---
+
+<div class="resources-hero">
+  <div class="hero-content">
+    <h1>Resources</h1>
+    <div class="resources-stats">
+      {% assign resources = site.resources | sort:"date" | reverse %}
+      <div class="stat-card">
+        <div class="stat-number">{{ resources | size }}</div>
+        <div class="stat-label">Total Resources</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ site.resources | map: 'tags' | join: ',' | split: ',' | uniq | size }}</div>
+        <div class="stat-label">Topics</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  {% assign resources = site.resources | sort:"title" %}
+  
+  <div class="resources-grid">
+    {% for resource in resources %}
+      <div class="resource-card">
+        <h3><a href="{{ resource.url }}">{{ resource.title }}</a></h3>
+        <div class="description">
+          {{ resource.excerpt | strip_html | truncate: 160 }}
+        </div>
+        {% if resource.tags %}
+        <div class="tags">
+          {% for tag in resource.tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <!-- Invisible overlay for full card click -->
+        <a href="{{ resource.url }}" class="card-overlay"></a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.resources-hero {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 35%, #2b0e47 70%, #16213e 100%);
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.resources-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  background: rgba(98,0,238,0.1);
+  border-color: rgba(98,0,238,0.3);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #6200EE;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resource-card {
+  position: relative;
+  background: rgba(28,28,28,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(98,0,238,0.3);
+  box-shadow: 0 10px 30px rgba(98,0,238,0.1);
+}
+
+.resource-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.resource-card h3 a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.resource-card h3 a:hover {
+  color: #6200EE;
+}
+
+.resource-card .description {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.resource-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.resource-card .tags span {
+  background: rgba(98,0,238,0.1);
+  color: #6200EE;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.resource-card .tags span:hover {
+  background: rgba(98,0,238,0.2);
+  transform: translateY(-2px);
+}
+
+/* Invisible overlay for full card click */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .resources-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .resources-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

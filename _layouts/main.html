@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lKPoR_2rFaT3TNsVNAXYYm3tobrs4hTo4C-pY8xwYT4" />
-    <title>{{ page.title }}</title>
+    {%- seo -%}
+
+    {%- comment -%}
+    Fallbacks for pages that don't set description or image in front matter.
+    `jekyll-seo-tag` covers most cases, but these ensure index pages and other
+    layouts still have minimal metadata.
+    {%- endcomment -%}
+
+    {% if page.description == nil or page.description == "" %}
+      <meta name="description" content="{{ site.description | escape }}">
+    {% endif %}
+
+    {% unless page.image %}
+      <meta property="og:image" content="{{ '/assets/images/favicon.ico' | absolute_url }}">
+    {% endunless %}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
     <!-- Font Awesome -->
@@ -325,7 +339,7 @@
           <a href="{{ '/blog/' | relative_url }}">Blog ▼</a>
           <div class="dropdown-content">
             <div class="recent-title">Recent Blog Posts</div>
-            {% assign recent_blogs = site.posts | where_exp:"post","post.categories contains 'blog'" | sort: "date" | reverse | slice: 0,3 %}
+            {% assign recent_blogs = site.blog | sort: "date" | reverse | slice: 0,3 %}
             {% for post in recent_blogs %}
               <a href="{{ post.url }}">{{ post.title | truncate: 40, "..." }}</a>
             {% endfor %}
@@ -335,15 +349,15 @@
         </div>
 
         <div class="dropdown">
-          <a href="{{ '/writeups/' | relative_url }}">Writeups ▼</a>
+          <a href="{{ '/writeup/' | relative_url }}">Writeups ▼</a>
           <div class="dropdown-content">
             <div class="recent-title">Recent Writeups</div>
-            {% assign recent_writeups = site.posts | where_exp:"post","post.categories contains 'writeups'" | sort: "date" | reverse | slice: 0,3 %}
+            {% assign recent_writeups = site.writeups | sort: "date" | reverse | slice: 0,3 %}
             {% for post in recent_writeups %}
               <a href="{{ post.url }}">{{ post.title | truncate: 40, "..." }}</a>
             {% endfor %}
             <hr style="border-color: rgba(98,0,238,0.3); margin:5px 0;">
-            <a href="{{ '/writeups/' | relative_url }}">All Writeups →</a>
+            <a href="{{ '/writeup/' | relative_url }}">All Writeups →</a>
           </div>
         </div>
 

@@ -2,63 +2,7 @@
 layout: main
 ---
 
-<!-- Meta tags for SEO, Open Graph, Twitter Cards, and JSON-LD structured data -->
-<head>
-  <title>{{ page.title }} | YourSiteName</title>
-
-  {% if page.description %}
-  <meta name="description" content="{{ page.description }}">
-  {% endif %}
-
-  <meta name="author" content="{{ page.author | default: "SoftAndoWetto" }}">
-
-  {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}">
-  <meta property="article:tag" content="{{ page.tags | join: ', ' }}">
-  {% endif %}
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{ page.title }}">
-  {% if page.description %}
-  <meta property="og:description" content="{{ page.description }}">
-  {% endif %}
-  {% if page.image %}
-  <meta property="og:image" content="{{ page.image }}">
-  {% endif %}
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:type" content="article">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title }}">
-  {% if page.description %}
-  <meta name="twitter:description" content="{{ page.description }}">
-  {% endif %}
-  {% if page.image %}
-  <meta name="twitter:image" content="{{ page.image }}">
-  {% endif %}
-
-  <link rel="canonical" href="{{ page.url | absolute_url }}">
-
-  <!-- JSON-LD structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "{{ page.title }}",
-    "description": "{{ page.description | escape }}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ page.author | default: 'SoftAndoWetto' }}"
-    },
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "image": "{{ page.image | absolute_url }}",
-    "keywords": "{{ page.tags | join: ', ' }}",
-    "url": "{{ page.url | absolute_url }}"
-  }
-  </script>
-
-  <!-- Post CSS and favicon -->
+<!-- Post header -->
   <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
   <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 
