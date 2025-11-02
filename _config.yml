@@ -1,7 +1,7 @@
 # Site settings
 title: SoftAndoWetto's Blog Page
 email: your-email@example.com
-description: "Write an awesome description for your site here."
+description: "Cybersecurity insights, CTF writeups, and penetration testing adventures. Featuring HackTheBox solutions, interview experiences, and deep dives into security tools and techniques."
 url: "https://softandowetto.github.io" # Replace with your GitHub Pages URL
 baseurl: "" # leave empty unless using a subfolder
 
