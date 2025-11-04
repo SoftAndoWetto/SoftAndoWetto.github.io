@@ -50,6 +50,12 @@ defaults:
     values:
       layout: "post"
 
+feed:
+  collections:
+    - blog
+    - writeups
+
+
 # Optional: exclude unnecessary files from build
 exclude:
   - .sass-cache/
