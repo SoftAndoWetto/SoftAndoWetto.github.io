@@ -4,7 +4,7 @@ title: "HTB - Conversor"
 date: 2025-10-26 10:00:00 +0000
 locked: true
 collection: writeups
-tags: [writeup, ctf, hackthebox, conversor, web, xslt, file-upload, reverse-shell, linux, privilege-escalation]
+tags: [htb, writeup, ctf, hackthebox, conversor, web, xslt, file-upload, reverse-shell, linux, privilege-escalation]
 image: "/assets/images/thumbnails/htb/ctf/conversor/thumbnail.png"
 description: "Step-by-step walkthrough of the HTB Conversor machine: exploiting XSLT file upload, cracking password hashes, and escalating privileges via needrestart CVE."
 author: "SoftAndoWetto"

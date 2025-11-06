@@ -3,7 +3,7 @@ layout: post
 title: "HTB - Chemistry Machine"
 date: 2025-03-14 10:00:00 +0000
 collection: writeups
-tags: [htb, chemistry, chemistry htb, htb chemistry, htb chemistry writeup, chemistry htb writeup, linux, web-exploitation, ssh, cif-exploit, code-execution, directory-traversal, root-access, vulnerability-analysis]
+tags: [htb, writeup, chemistry, chemistry htb, htb chemistry, htb chemistry writeup, chemistry htb writeup, linux, web-exploitation, ssh, cif-exploit, code-execution, directory-traversal, root-access, vulnerability-analysis]
 image: "/assets/images/thumbnails/htb/ctf/chemistry/thumbnail.png"
 description: "I really bonded with this one (I'll see myself out)"
 author: "SoftAndoWetto"
