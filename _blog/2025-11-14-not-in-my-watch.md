@@ -5,7 +5,7 @@ date: 2025-11-14 09:00:00 +0000
 category: blog
 image: "/assets/images/thumbnails/not_in_my_watch/thumbnail.png"
 tags: [interview, cybersecurity, cloud-security, devops, azure, saas, career, penetration-testing]
-description: "A behind-the-scenes look at what a real government cybersecurity interview is like: from 5G and 6G security to national defence research. Here’s what they ask, what they value, and how to stand out."
+description: "A behind-the-scenes look at a CyberSec Analyst pre-screening interview in an IoT and enterprise environment. Learn what skills and experience stand out, from hands-on labs and CTFs to cloud security, networking, and proactive team collaboration."
 author: "SoftAndoWetto"
 ---
 
