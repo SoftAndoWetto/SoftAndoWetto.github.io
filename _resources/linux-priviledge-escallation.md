@@ -368,3 +368,13 @@ Checks the dependencies for a custom dynamic library
 ```bash
 ldd <applicaiton>
 ```
+
+
+
+
+
+
+
+
+
+grep -RIn --color=always -I -E 'password|passwd|pass(word)?|pwd|secret|api[_-]?key|token' .

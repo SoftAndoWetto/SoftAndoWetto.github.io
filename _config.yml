@@ -35,6 +35,8 @@ collections:
   resources:
     output: true
     permalink: /resources/:title
+  pages:
+    output: true
 
 defaults:
   -
