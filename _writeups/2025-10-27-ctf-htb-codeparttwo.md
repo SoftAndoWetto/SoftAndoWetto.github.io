@@ -6,7 +6,7 @@ locked: true
 collection: writeups
 tags: [htb, writeup, ctf, codeparttwo, linux, rce, remote-code-execution, js2py, cve-2024-28397, web-application, directory-fuzzing, feroxbuster, rustscan, sqlite, users-db, password-cracking, hashid, privilege-escalation, npbackup, root]
 image: "/assets/images/thumbnails/htb/ctf/codeparttwo/thumbnail.png"
-description: ""
+description: "A full walkthrough of CodePartTwo, covering everything from JS2Py exploitation to database extraction and a clever npbackup privilege escalation technique."
 author: "SoftAndoWetto"
 ---
 
