@@ -2,6 +2,7 @@
 layout: post
 title: "HTB - MonitorsFour"
 date: 2025-12-16 12:00:00 +0000
+locked: true
 collection: writeups
 tags: [hackthebox, htb, writeup, monitorsfour, linux, web-exploitation, docker, remote-code-execution, privilege-escalation, cacti, wordpress, php, CVE-2025-24367, enumeration, root-access, user-flag, docker-escape, vulnerability-analysis]
 image: "/assets/images/thumbnails/htb/ctf/monitorsfour/thumbnail.png"
