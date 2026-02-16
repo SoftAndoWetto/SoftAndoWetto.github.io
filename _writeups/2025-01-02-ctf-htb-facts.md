@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "HTB - Facts"
-date: 2025-12-16 12:00:00 +0000
+date: 2025-01-02 12:00:00 +0000
 locked: true
 collection: writeups
 tags: 
