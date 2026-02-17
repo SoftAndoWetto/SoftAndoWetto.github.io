@@ -2,7 +2,7 @@
 layout: post
 title: "HTB - CodePartTwo"
 date: 2025-10-27 10:00:00 +0000
-locked: true
+locked: tfalsee
 collection: writeups
 tags: [htb, writeup, ctf, codeparttwo, linux, rce, remote-code-execution, js2py, cve-2024-28397, web-application, directory-fuzzing, feroxbuster, rustscan, sqlite, users-db, password-cracking, hashid, privilege-escalation, npbackup, root]
 image: "/assets/images/thumbnails/htb/ctf/codeparttwo/thumbnail.png"

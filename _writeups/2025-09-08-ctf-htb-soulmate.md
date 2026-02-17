@@ -2,7 +2,7 @@
 layout: post
 title: "HTB - Soulmate"
 date: 2025-09-08 10:00:00 +0000
-locked: true
+locked: false
 collection: writeups
 tags: [htb, writeup, soulmate, soulmate htb, htb soulmate, htb soulmate writeup, soulmate htb writeup, linux, web-exploitation, php, file-upload, ssh, crushftp, vulnerability-exploit, privilege-escalation, root-access]
 image: "/assets/images/thumbnails/htb/ctf/soulmate/thumbnail.png"
